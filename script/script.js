@@ -1,135 +1,116 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js";
+// Predefined credentials
+const VALID_USERNAME = 'Anu';
+const VALID_PASSWORD = 'password123';
 
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyAx1cUHe43H2hpbPnDpsuUwTA9A9CLPwRE",
-  authDomain: "symanu-8feca.firebaseapp.com",
-  databaseURL: "https://symanu-8feca-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "symanu-8feca",
-  storageBucket: "symanu-8feca.firebasestorage.app",
-  messagingSenderId: "384265739052",
-  appId: "1:384265739052:web:831672d3f4a44aed0b2a89",
-  measurementId: "G-7WT2DCK760"
-};
-
-// Initialize Firebase and authentication
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const storage = getStorage(app);
-
-const allowedEmails = [
-  "shivadityas3@gmail.com",
-  "anmolpatel3700@gmail.com",
-  "swayambaghel038@gmail.com"
-];
-
+// Month data
 const monthData = {
   "November 2023": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/api/placeholder/800/600",
     caption: "November 2023 - The beginning of our journey"
   },
   "December 2023": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/api/placeholder/800/600",
     caption: "December 2023 - Winter celebrations"
   },
-  "January 2024": {  // Corrected: added the missing opening brace
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+  "January 2024": {
+    imageUrl: "/api/placeholder/800/600",
     caption: "January 2024 - New Year, New Beginnings"
   },
   "February 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/api/placeholder/800/600",
     caption: "February 2024 - Month of Love"
   },
   "March 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/api/placeholder/800/600",
     caption: "March 2024 - Spring Arrival"
   },
   "April 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/api/placeholder/800/600",
     caption: "April 2024 - Spring in Full Bloom"
   },
   "May 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/api/placeholder/800/600",
     caption: "May 2024 - Summer Begins"
   },
   "June 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/api/placeholder/800/600",
     caption: "June 2024 - Mid-Year Reflections"
   },
   "July 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/api/placeholder/800/600",
     caption: "July 2024 - Summer Adventures"
   },
   "August 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/api/placeholder/800/600",
     caption: "August 2024 - Late Summer Days"
   },
   "September 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/api/placeholder/800/600",
     caption: "September 2024 - Fall Approaches"
   },
   "October 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/api/placeholder/800/600",
     caption: "October 2024 - Autumn Colors"
   },
   "November 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/api/placeholder/800/600",
     caption: "November 2024 - One Year Milestone"
   }
 };
 
-
 // DOM Elements
-const timerElement = document.getElementById("timer");
-const monthCardsContainer = document.getElementById("month-cards-container");
-const monthDialog = document.getElementById("month-dialog");
-const dialogTitle = document.getElementById("dialog-title");
-const dialogMessage = document.getElementById("dialog-message");
+const loginForm = document.getElementById('login-form');
+const logoutButton = document.getElementById('logout-button');
+const userInfo = document.getElementById('user-info');
+const timerElement = document.getElementById('timer');
+const monthCardsContainer = document.getElementById('month-cards-container');
+const monthDialog = document.getElementById('month-dialog');
+const dialogTitle = document.getElementById('dialog-title');
+const dialogMessage = document.getElementById('dialog-message');
+const countdown = document.getElementById('countdown');
 
-// Login functionality
-document.getElementById('login-button').addEventListener('click', () => {
-  const provider = new GoogleAuthProvider();
-  signInWithPopup(auth, provider)
-    .then(result => {
-      const userEmail = result.user.email;
-      if (allowedEmails.includes(userEmail)) {
-        displayUserInfo(result.user);
-        startCountdown();
-        generateMonthCards();
-      } else {
-        auth.signOut().then(() => {
-          alert("Access Denied: Your account is not authorized.");
-        });
-      }
-    })
-    .catch(error => {
-      console.error("Error during sign-in:", error);
-    });
+let countdownInterval;
+
+// Login form submission
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+    loginSuccess();
+  } else {
+    alert('Wrong password, My Anu! Please try again 😘');
+  }
 });
 
 // Logout functionality
-document.getElementById('logout-button').addEventListener('click', () => {
-  signOut(auth).then(() => {
-    document.getElementById('user-info').style.display = 'none';
-    document.getElementById('login-button').style.display = 'block';
-    document.getElementById('logout-button').style.display = 'none';
-    monthCardsContainer.innerHTML = '';
-    stopCountdown();
-  });
+logoutButton.addEventListener('click', () => {
+  logout();
 });
 
-function displayUserInfo(user) {
-  document.getElementById('user-name').textContent = user.displayName;
-  document.getElementById('user-pic').src = user.photoURL;
-  document.getElementById('user-info').style.display = 'flex';
-  document.getElementById('login-button').style.display = 'none';
-  document.getElementById('logout-button').style.display = 'block';
+function loginSuccess() {
+  userInfo.style.display = 'flex';
+  document.getElementById('user-name').textContent = VALID_USERNAME;
+  loginForm.style.display = 'none';
+  logoutButton.style.display = 'block';
+  countdown.classList.remove('countdown-center');
+  countdown.classList.add('countdown-top-right');
+  startCountdown();
+  generateMonthCards();
 }
 
-// Countdown Logic
-let countdownInterval;
+
+function logout() {
+  userInfo.style.display = 'none';
+  loginForm.style.display = 'block';
+  logoutButton.style.display = 'none';
+  countdown.classList.remove('countdown-top-right');
+  countdown.classList.add('countdown-center');
+  monthCardsContainer.innerHTML = '';
+  stopCountdown();
+  loginForm.reset();
+}
 
 function startCountdown() {
   const targetDate2024 = new Date("November 23, 2024 12:00:00 GMT+0530").getTime();
@@ -177,39 +158,6 @@ function stopCountdown() {
   timerElement.innerHTML = "";
 }
 
-// Add this new function after monthData
-function loadMonthImage(monthYear) {
-  const dialogImage = document.getElementById('dialog-image');
-  const dialogMessage = document.getElementById('dialog-message');
-  
-  // Show loading state
-  dialogImage.src = '/api/placeholder/800/600';
-  dialogMessage.textContent = 'Loading...';
-  
-  const monthInfo = monthData[monthYear];
-  if (monthInfo) {
-    // Create a new image object to test loading
-    const img = new Image();
-    img.crossOrigin = "anonymous";
-    
-    img.onload = function() {
-      dialogImage.src = monthInfo.imageUrl;
-      dialogMessage.textContent = monthInfo.caption;
-    };
-    
-    img.onerror = function() {
-      dialogImage.src = '/api/placeholder/800/600';
-      dialogMessage.textContent = 'Failed to load image. Please try again later.';
-      console.error('Failed to load image for ' + monthYear);
-    };
-    
-    img.src = monthInfo.imageUrl;
-  } else {
-    dialogMessage.textContent = 'No content available for this month yet.';
-  }
-}
-
-// Find and replace your existing generateMonthCards function with this:
 function generateMonthCards() {
   const months = [];
   let currentDate = new Date(2023, 10); // November 2023
@@ -227,7 +175,6 @@ function generateMonthCards() {
     </div>
   `).join('');
 
-  // Add click listeners to cards
   document.querySelectorAll('.month-card').forEach(card => {
     card.addEventListener('click', () => {
       const date = new Date(card.dataset.month);
@@ -240,6 +187,20 @@ function generateMonthCards() {
   });
 }
 
+function loadMonthImage(monthYear) {
+  const dialogImage = document.getElementById('dialog-image');
+  const dialogMessage = document.getElementById('dialog-message');
+  
+  const monthInfo = monthData[monthYear];
+  if (monthInfo) {
+    dialogImage.src = monthInfo.imageUrl;
+    dialogMessage.textContent = monthInfo.caption;
+  } else {
+    dialogImage.src = '/api/placeholder/800/600';
+    dialogMessage.textContent = 'No content available for this month yet.';
+  }
+}
+
 // Dialog close button
 document.querySelector('.close-dialog').addEventListener('click', () => {
   monthDialog.close();
@@ -248,16 +209,4 @@ document.querySelector('.close-dialog').addEventListener('click', () => {
 // Add error handling for the dialog image
 document.getElementById('dialog-image').addEventListener('error', function() {
   this.src = '/api/placeholder/800/600';
-});
-
-// Authentication state change handler
-onAuthStateChanged(auth, user => {
-  if (user && allowedEmails.includes(user.email)) {
-    displayUserInfo(user);
-    startCountdown();
-    generateMonthCards();
-  } else if (user) {
-    auth.signOut();
-    alert("Access Denied: Your account is not authorized.");
-  }
 });
