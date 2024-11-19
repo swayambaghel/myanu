@@ -1,0 +1,40 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="script.js"></script>
+</head>
+<body>
+  <!-- User Info -->
+  <div id="user-info" style="display: none;">
+    <img id="user-pic" alt="User Picture">
+    <span id="user-name"></span>
+  </div>
+
+  <!-- Countdown Display -->
+  <div id="countdown" class="countdown-center">
+    <div id="timer"></div>
+    <button id="login-button" class="auth-button">Login with Google</button>
+    <button id="logout-button" class="auth-button" style="display: none;">Logout</button>
+  </div>
+
+  <!-- Month Cards Container -->
+  <div id="month-cards-container" class="month-cards-container"></div>
+
+  <!-- Dialog Template -->
+  <dialog id="month-dialog" class="month-dialog">
+    <div class="dialog-content">
+      <button class="close-dialog">&times;</button>
+      <h2 id="dialog-title"></h2>
+      <div class="dialog-image-container">
+        <img id="dialog-image" src="/api/placeholder/800/600" alt="Month Image">
+      </div>
+      <div id="dialog-message" class="dialog-message"></div>
+    </div>
+  </dialog>
+</body>
+</html>
