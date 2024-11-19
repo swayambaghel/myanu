@@ -27,55 +27,55 @@ const allowedEmails = [
 
 const monthData = {
   "November 2023": {
-  imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "November 2023 - The beginning of our journey"
   },
   "December 2023": {
-    imageUrl: "images/december2023.jpg",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "December 2023 - Winter celebrations"
   },
   "January 2024": {  // Corrected: added the missing opening brace
-    imageUrl: "images/january2024.jpg",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "January 2024 - New Year, New Beginnings"
   },
   "February 2024": {
-    imageUrl: "images/february2024.jpg",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "February 2024 - Month of Love"
   },
   "March 2024": {
-    imageUrl: "images/march2024.jpg",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "March 2024 - Spring Arrival"
   },
   "April 2024": {
-    imageUrl: "images/april2024.jpg",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "April 2024 - Spring in Full Bloom"
   },
   "May 2024": {
-    imageUrl: "images/may2024.jpg",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "May 2024 - Summer Begins"
   },
   "June 2024": {
-    imageUrl: "images/june2024.jpg",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "June 2024 - Mid-Year Reflections"
   },
   "July 2024": {
-    imageUrl: "images/july2024.jpg",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "July 2024 - Summer Adventures"
   },
   "August 2024": {
-    imageUrl: "images/august2024.jpg",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "August 2024 - Late Summer Days"
   },
   "September 2024": {
-    imageUrl: "images/september2024.jpg",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "September 2024 - Fall Approaches"
   },
   "October 2024": {
-    imageUrl: "images/october2024.jpg",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "October 2024 - Autumn Colors"
   },
   "November 2024": {
-    imageUrl: "images/november2024.jpg",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "November 2024 - One Year Milestone"
   }
 };
