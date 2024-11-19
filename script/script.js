@@ -2,58 +2,58 @@
 const VALID_USERNAME = 'Anu';
 const VALID_PASSWORD = 'password123';
 
-// Month data
+// Month data with updated image URL
 const monthData = {
   "November 2023": {
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "November 2023 - The beginning of our journey"
   },
   "December 2023": {
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "December 2023 - Winter celebrations"
   },
   "January 2024": {
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "January 2024 - New Year, New Beginnings"
   },
   "February 2024": {
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "February 2024 - Month of Love"
   },
   "March 2024": {
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "March 2024 - Spring Arrival"
   },
   "April 2024": {
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "April 2024 - Spring in Full Bloom"
   },
   "May 2024": {
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "May 2024 - Summer Begins"
   },
   "June 2024": {
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "June 2024 - Mid-Year Reflections"
   },
   "July 2024": {
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "July 2024 - Summer Adventures"
   },
   "August 2024": {
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "August 2024 - Late Summer Days"
   },
   "September 2024": {
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "September 2024 - Fall Approaches"
   },
   "October 2024": {
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "October 2024 - Autumn Colors"
   },
   "November 2024": {
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
     caption: "November 2024 - One Year Milestone"
   }
 };
@@ -99,7 +99,6 @@ function loginSuccess() {
   startCountdown();
   generateMonthCards();
 }
-
 
 function logout() {
   userInfo.style.display = 'none';
@@ -196,7 +195,7 @@ function loadMonthImage(monthYear) {
     dialogImage.src = monthInfo.imageUrl;
     dialogMessage.textContent = monthInfo.caption;
   } else {
-    dialogImage.src = '/api/placeholder/800/600';
+    dialogImage.src = "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp";
     dialogMessage.textContent = 'No content available for this month yet.';
   }
 }
@@ -208,5 +207,5 @@ document.querySelector('.close-dialog').addEventListener('click', () => {
 
 // Add error handling for the dialog image
 document.getElementById('dialog-image').addEventListener('error', function() {
-  this.src = '/api/placeholder/800/600';
+  this.src = "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp";
 });
