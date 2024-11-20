@@ -5,55 +5,55 @@ const VALID_PASSWORD = 'password123';
 // Month data with updated image URL
 const monthData = {
   "November 2023": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/images/November2023.jpg",
     caption: "November 2023 - The beginning of our journey"
   },
   "December 2023": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/images/November2023.jpg",
     caption: "December 2023 - Winter celebrations"
   },
   "January 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/images/November2023.jpg",
     caption: "January 2024 - New Year, New Beginnings"
   },
   "February 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/images/November2023.jpg",
     caption: "February 2024 - Month of Love"
   },
   "March 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/images/November2023.jpg",
     caption: "March 2024 - Spring Arrival"
   },
   "April 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/images/November2023.jpg",
     caption: "April 2024 - Spring in Full Bloom"
   },
   "May 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/images/November2023.jpg",
     caption: "May 2024 - Summer Begins"
   },
   "June 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/images/November2023.jpg",
     caption: "June 2024 - Mid-Year Reflections"
   },
   "July 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/images/November2023.jpg",
     caption: "July 2024 - Summer Adventures"
   },
   "August 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/images/November2023.jpg",
     caption: "August 2024 - Late Summer Days"
   },
   "September 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/images/November2023.jpg",
     caption: "September 2024 - Fall Approaches"
   },
   "October 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/images/November2023.jpg",
     caption: "October 2024 - Autumn Colors"
   },
   "November 2024": {
-    imageUrl: "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp",
+    imageUrl: "/images/November2023.jpg",
     caption: "November 2024 - One Year Milestone"
   }
 };
@@ -207,5 +207,5 @@ document.querySelector('.close-dialog').addEventListener('click', () => {
 
 // Add error handling for the dialog image
 document.getElementById('dialog-image').addEventListener('error', function() {
-  this.src = "https://drive.google.com/uc?export=view&id=1byjvEjfD57bH7-isYVgERqe0QmttgWxp";
+  this.src = "/images/November2023.jpg";
 });
